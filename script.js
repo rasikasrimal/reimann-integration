@@ -309,13 +309,23 @@ function draw() {
   updateURL();
 }
 
+const LABELS = {
+  left: 'Left',
+  right: 'Right',
+  mid: 'Midpoint',
+  upper: 'Upper',
+  lower: 'Lower',
+};
+
+
 function updateLegend(methods) {
   if (compareAll.checked || methods.length > 1) {
     legend.classList.remove('hidden');
     legend.innerHTML = '';
     for (const m of methods) {
       const span = document.createElement('span');
-      span.textContent = m;
+      span.textContent = LABELS[m] || m;
+
       span.style.color = methodColor(m, 1);
       legend.appendChild(span);
     }
@@ -449,5 +459,6 @@ themeToggle.addEventListener('click', () => {
 window.addEventListener('resize', scheduleDraw);
 
 loadFromURL();
-scheduleDraw();
+window.addEventListener('load', scheduleDraw);
+
 

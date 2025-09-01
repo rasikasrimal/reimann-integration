@@ -8,8 +8,6 @@
   --mid: #2ca02c;
   --upper: #d62728;
   --lower: #9467bd;
-  --trap: #8c564b;
-  --simp: #e377c2;
 }
 
 body.dark {
@@ -65,6 +63,8 @@ body {
   overflow-y: auto;
   background: var(--bg);
   border-right: 1px solid var(--grid);
+  box-shadow: 2px 0 4px rgba(0,0,0,0.05);
+
 }
 
 .field {
@@ -82,11 +82,13 @@ body {
 }
 
 .methods {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 0.5rem;
   border: 1px solid var(--grid);
   padding: 0.5rem;
+  border-radius: 4px;
+
 }
 
 .methods label {
@@ -114,6 +116,9 @@ canvas {
   height: 100%;
   background: var(--bg);
   border: 1px solid var(--grid);
+  border-radius: 4px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.1);
+
   display: block;
 }
 
@@ -135,6 +140,8 @@ canvas {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  font-size: 0.9rem;
+
 }
 
 .legend span {
@@ -156,6 +163,8 @@ canvas {
   padding: 0.5rem 1rem 1rem;
   background: var(--bg);
   border-top: 1px solid var(--grid);
+  box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
+
 }
 
 .results table {
@@ -178,6 +187,21 @@ canvas {
   display: flex;
   gap: 0.5rem;
 }
+
+button {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--grid);
+  background: var(--accent);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
 
 @media (max-width: 700px) {
   .layout {
