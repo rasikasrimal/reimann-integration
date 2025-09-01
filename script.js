@@ -317,6 +317,7 @@ const LABELS = {
   lower: 'Lower',
 };
 
+
 function updateLegend(methods) {
   if (compareAll.checked || methods.length > 1) {
     legend.classList.remove('hidden');
@@ -324,6 +325,7 @@ function updateLegend(methods) {
     for (const m of methods) {
       const span = document.createElement('span');
       span.textContent = LABELS[m] || m;
+
       span.style.color = methodColor(m, 1);
       legend.appendChild(span);
     }
@@ -458,4 +460,5 @@ window.addEventListener('resize', scheduleDraw);
 
 loadFromURL();
 window.addEventListener('load', scheduleDraw);
+
 
